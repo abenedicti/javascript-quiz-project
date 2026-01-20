@@ -23,8 +23,30 @@ class Quiz {
     }
   }
   checkAnswer(answer) {
-    if (this.answer === answer) {
+    let theQuestion = this.questions[this.currentQuestionIndex].answer;
+    if (answer === theQuestion) {
       this.correctAnswers++;
     }
+  }
+  hasEnded() {
+    if (this.currentQuestionIndex < this.questions.length) {
+      return false;
+    } else if ((this.currentQuestionIndex = this.questions.length)) {
+      return true;
+    }
+  }
+  filterQuestionsByDifficulty(difficulty) {
+    if (difficulty >= 1 && difficulty <= 3 && Number.isInteger(difficulty)) {
+      const filterDifficulty = this.questions.filter((question) => {
+        return question.difficulty === difficulty;
+      });
+      this.questions = filterDifficulty;
+    }
+  }
+  averageDifficulty() {
+    let total = this.questions.reduce((acc, question) => {
+      return acc + question.difficulty;
+    }, 0);
+    return total / this.questions.length;
   }
 }
