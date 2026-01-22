@@ -16,5 +16,3 @@ class Question {
     }
   }
 }
-shuffleChoices();
-console.log(shuffleChoices);
