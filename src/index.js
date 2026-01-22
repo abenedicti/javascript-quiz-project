@@ -172,7 +172,6 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       
       quiz.checkAnswer(selectedAnswer)
-          console.log(this.correctAnswers)
       quiz.moveToNextQuestion()
 
     // 2. Loop through all the choice elements and check which one is selected
